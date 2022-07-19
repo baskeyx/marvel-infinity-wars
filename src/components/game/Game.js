@@ -1,0 +1,50 @@
+import ironman from '../../55b6a25e654e6.jpeg';
+import cap from '../../53176a0bb810c.jpg'
+import styles from './Game.module.scss';
+
+const Game = () => {
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  const getRandomStat = (input) => {
+    let output = 100 / 7 * (input-1);
+    output += randomIntFromInterval(1, 14);
+    return output.toFixed(0);
+  }
+  return (
+    <div className={styles.GameWrapper}>
+      <div className={styles.GamePanel}>
+        <img className={styles.GameImage} src={ironman} alt='Iron Man' />
+        <div className={styles.GameInfo}>
+          <div className={styles.GameName}>Iron Man</div>
+          <div className={styles.GameLives}>♥♥♥</div>
+          <div className={styles.GameStats}>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Ene</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(6)}</span><span>Fig</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Int</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(6)}</span><span>Spe</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Str</span></div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.GamePanel}>
+        <img className={styles.GameImage} src={cap} alt='Captain America' />
+        <div className={styles.GameInfo}>
+          <div className={styles.GameName}>Captain America</div>
+          <div className={styles.GameLives}>♥♥♥</div>
+          <div className={styles.GameStats}>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(6)}</span><span>Ene</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Fig</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(6)}</span><span>Int</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Spe</span></div>
+            <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Str</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Game;

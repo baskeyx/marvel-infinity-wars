@@ -1,0 +1,96 @@
+.GameWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .GamePanel {
+    position: relative;
+    background: #37aeb6;
+    display: flex;
+    color:#fff;
+    font-family: 'Lato';
+    max-width: 480px;
+
+    .GameImage {
+      width: 50%;
+      align-self: center;
+    }
+
+    .GameInfo {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 15px 0 10px 0;
+      .GameName {
+        font-size: 18px;
+        text-transform: uppercase;
+        width: calc(100% - 15px);
+        text-align: right;
+        font-weight: bold;
+        white-space: nowrap;
+        padding-right: 15px;
+        @media (min-width: 480px) {
+          font-size: 22px;
+        }
+      }
+
+      .GameLives {
+        text-align: right;
+        width: 100%;
+        padding: 6px 15px 0 0;
+      }
+
+      .GameStats {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        color: #fff;
+        font-family: Lato;
+    
+        .GameStat {
+          width: 33%;
+          display: flex;
+          flex-wrap: wrap;
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 16px;
+          justify-content: center;
+          margin-top: 6px;
+          @media (min-width: 480px) {
+            margin-top: 16px;
+          }
+    
+          .GameStatRating {
+            font-size: 26px;
+            @media (min-width: 480px) {
+              font-size: 36px;
+            }
+            font-weight: bold;
+            width: 100%;
+          }
+    
+        }
+    
+      }
+    
+    }
+
+  }
+
+  .GamePanel:nth-child(2) {
+    background: #4b824b;
+    flex-direction: row-reverse;
+    .GameInfo {
+      .GameName {
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 0;
+      }
+      .GameLives {
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 0;
+      }
+    }
+  }
+
+}

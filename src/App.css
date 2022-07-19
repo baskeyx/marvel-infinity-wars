@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin: 0 20px;
 }
 
 .App-logo {
@@ -43,66 +44,6 @@
   }
 }
 
-.Card {
-  background: #4b824b;
-  height: 580px; /* 630 */
-  width: 425px; /* 450 */
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  padding: 25px 0 25px 25px;
-  align-items: flex-start;
-}
-
-.Card-Image {
-  width: 100%;
-  align-self: center;
-}
-
-.Card-Name-Wrapper {
-  width: 20%;
-}
-
-.Card-Name {
-  color:#fff;
-  font-family: Lato;
-  text-transform: uppercase;
-  font-size: 45px;
-  font-weight: bold;
-  transform: rotateZ(90deg);
-  text-align: left;
-  white-space: nowrap;
-  padding-left: 15px;
-}
-
-.Card-Section {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  align-items: flex-start;
-}
-
-.Card-Stats {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  color: #fff;
-  font-family: Lato;
-}
-
-.Card-Stat {
-  width: 33%;
-  display: flex;
-  flex-wrap: wrap;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 16px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.Card-Stats .Card-Stat-Rating {
-  font-size: 45px;
-  font-weight: bold;
+img {
   width: 100%;
 }

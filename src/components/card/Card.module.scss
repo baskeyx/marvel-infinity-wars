@@ -1,0 +1,71 @@
+.Card {
+  background: #4b824b;
+  min-width: 335px;
+  //height: 469px; /* 630 */
+  width: 425px; /* 450 */
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0 25px 25px;
+  align-items: flex-start;
+  @media (min-width: 480px) {
+    height: 580px; /* 630 */
+  }
+
+  .CardImage {
+    width: 100%;
+    align-self: center;
+  }
+
+  .CardStats {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    font-family: Lato;
+
+    .CardStat {
+      width: 33%;
+      display: flex;
+      flex-wrap: wrap;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 16px;
+      justify-content: center;
+      margin-top: 20px;
+      @media (min-width: 480px) {
+        margin-top: 40px;
+      }
+
+      .CardStatRating {
+        font-size: 36px;
+        @media (min-width: 480px) {
+          font-size: 45px;
+        }
+        font-weight: bold;
+        width: 100%;
+      }
+
+    }
+
+  }
+
+  .CardNameWrapper {
+    width: 20%;
+
+    .CardName {
+      color:#fff;
+      font-family: Lato;
+      text-transform: uppercase;
+      font-size: 45px;
+      font-weight: bold;
+      transform: rotateZ(90deg);
+      text-align: left;
+      white-space: nowrap;
+      padding-left: 15px;
+    }
+
+  }
+
+}
+
