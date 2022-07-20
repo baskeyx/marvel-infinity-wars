@@ -1,5 +1,3 @@
-import ironman from '../../55b6a25e654e6.jpeg';
-import cap from '../../53176a0bb810c.jpg'
 import styles from './Game.module.scss';
 import heart from '../../heart.svg';
 
