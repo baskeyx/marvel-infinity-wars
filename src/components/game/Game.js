@@ -15,7 +15,7 @@ const Game = () => {
   return (
     <div className={styles.GameWrapper}>
       <div className={styles.GamePanel}>
-        <img className={styles.GameImage} src={ironman} alt='Iron Man' />
+        <img className={styles.GameImage} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/55b6a25e654e6.webp' alt='Iron Man' />
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Iron Man</div>
           <div className={styles.GameLives}>
@@ -34,7 +34,7 @@ const Game = () => {
         </div>
       </div>
       <div className={styles.GamePanel}>
-        <img className={styles.GameImage} src={cap} alt='Captain America' />
+        <img className={styles.GameImage} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/53176a0bb810c.webp' alt='Captain America' />
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Captain America</div>
           <div className={styles.GameLives}>
