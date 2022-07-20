@@ -2,7 +2,6 @@
   "name": "marvel-card-design",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://flux-digital.co.uk/card-design/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
