@@ -1,5 +1,4 @@
 import styles from './Game.module.scss';
-import heart from '../../heart.svg';
 
 const Game = () => {
   const randomIntFromInterval = (min, max) => { // min and max included 
@@ -17,9 +16,9 @@ const Game = () => {
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Iron Man</div>
           <div className={styles.GameLives}>
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
           </div>
           <div className={styles.GameStats}>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>
@@ -36,9 +35,9 @@ const Game = () => {
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Captain America</div>
           <div className={styles.GameLives}>
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
-            <img className={styles.GameHitPoint} src={heart} alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
+            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
           </div>
           <div className={styles.GameStats}>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>

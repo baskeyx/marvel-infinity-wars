@@ -17,6 +17,9 @@
           "deploymentBucketName": "amplify-marvelinfinitywars-dev-170753-deployment",
           "s3Key": "amplify-builds/AMPAPIFunc-727842646a2b76624732-build.zip"
         }
+      },
+      "auth": {
+        "marvelinfinitywarsd0c09289": {}
       }
     }
   }
