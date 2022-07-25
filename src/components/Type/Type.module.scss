@@ -1,0 +1,26 @@
+.TypeWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Type {
+  display: flex;
+  border: 3px solid #000;
+  background: #fff;
+  width: 100%;
+  font-family: Bangers;
+  font-size: 24px;
+  color: #000;
+}
+
+.TypeCopy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bangers';
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+}
