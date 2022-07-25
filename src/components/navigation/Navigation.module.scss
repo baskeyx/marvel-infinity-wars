@@ -21,15 +21,17 @@
     align-content: center;
     height: 100%;
     position: relative;
+    width: 25%;
     img {
       width: 25%;
       display: block;
       max-width: 30px;
     }
     span {
-      padding: 3px 20px 0;
       font-size: 14px;
-      position: relative;
+      width: 100%;
+      text-align: center;
+      padding: 3px 0 0;
     }
   }
 }
