@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Typist from 'react-typist';
 import Avatar from '../avatar';
+import Button from '../Button';
 import styles from './Type.module.scss';
 
 const Type = ({ phrases }) => {
@@ -9,7 +10,9 @@ const Type = ({ phrases }) => {
   const [button, setButton] = useState('');
 
   const displayButton = () => {
-    setButton('Next');
+    if (counter < phrases.length) {
+      setButton('Next');
+    };
   }
 
   const changeCopy = () => {
@@ -33,7 +36,7 @@ const Type = ({ phrases }) => {
           </Typist>
         </div>
       </div>
-      { button ? <button onClick={changeCopy}>{button}</button> : null }
+      { button ? <Button onClick={changeCopy}>{button}</Button> : null }
     </div>
   )
 }
