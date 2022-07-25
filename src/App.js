@@ -1,6 +1,5 @@
-import Card from './components/card';
 import { useState, useEffect } from 'react';
-import Game from './components/game';
+import Router from './components/router';
 import './App.css';
 import { Amplify, API } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -20,9 +19,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {myMessage}
-      {/* <Card img={img} /> */}
-      <Game />
+      <Router />
     </div>
   );
 }

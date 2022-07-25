@@ -1,9 +1,9 @@
 import styles from './Card.module.scss';
 
-const Card = ({ img }) => (
+const Card = () => (
   <div className={styles.Card}>
     <div>
-      <img className={styles.CardImage} src={img} alt='Silver Surfer' />
+      <img className={styles.CardImage} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/527bb6490a176.webp' alt='Silver Surfer' />
       <div className={styles.CardStats}>
         <div className={styles.CardStat}><span className={styles.CardStatRating}>97</span><span>Durability</span></div>
         <div className={styles.CardStat}><span className={styles.CardStatRating}>97</span><span>Energy</span></div>
