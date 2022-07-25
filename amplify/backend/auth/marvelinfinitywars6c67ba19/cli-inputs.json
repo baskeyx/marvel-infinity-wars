@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "marvelinfinitywarsd0c09289_identitypool_d0c09289",
+    "identityPoolName": "marvelinfinitywars6c67ba19_identitypool_6c67ba19",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "marveld0c09289",
-    "userPoolName": "marvelinfinitywarsd0c09289_userpool_d0c09289",
+    "resourceNameTruncated": "marvel6c67ba19",
+    "userPoolName": "marvelinfinitywars6c67ba19_userpool_6c67ba19",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "marveld0c09289_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "marvel6c67ba19_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "d0c09289",
-    "resourceName": "marvelinfinitywarsd0c09289",
+    "sharedId": "6c67ba19",
+    "resourceName": "marvelinfinitywars6c67ba19",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "userPoolGroupList": [],

@@ -1,0 +1,35 @@
+.Navigation {
+  height: 60px;
+  background: #222;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 99;
+  overflow: hidden;
+  a:visited,
+  a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    position: relative;
+    img {
+      width: 25%;
+      display: block;
+      max-width: 30px;
+    }
+    span {
+      padding: 3px 20px 0;
+      font-size: 14px;
+      position: relative;
+    }
+  }
+}
