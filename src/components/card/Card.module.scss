@@ -1,6 +1,7 @@
 .Card {
   background: #4b824b;
   min-width: 310px;
+  position: relative;
   //height: 469px; /* 630 */
   max-width: 425px; /* 450 */
   overflow: hidden;
@@ -8,17 +9,22 @@
   justify-content: space-between;
   padding: 25px 0 25px 25px;
   align-items: flex-start;
+  flex-wrap: wrap;
   @media (min-width: 480px) {
     height: 580px; /* 630 */
   }
 
+  .CardInfo {
+    display: flex;
+  }
+
   .CardImage {
-    width: 100%;
+    width: 80%;
     align-self: center;
   }
 
   .CardStats {
-    width: 100%;
+    width: 86%;
     display: flex;
     flex-wrap: wrap;
     color: #fff;
@@ -52,6 +58,8 @@
 
   .CardNameWrapper {
     width: 20%;
+    position: absolute;
+    right: 0;
 
     .CardName {
       color:#fff;
