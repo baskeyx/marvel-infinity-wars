@@ -3,6 +3,7 @@
 body, html {
   padding: 0;
   margin: 0;
+  background: #ddd;
 }
 
 h1, h2 {
