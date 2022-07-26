@@ -8,6 +8,7 @@ const Type = ({ phrases }) => {
   const [copy, setCopy] = useState('');
   const [counter, setCounter] = useState(0);
   const [button, setButton] = useState('');
+  const [character, setCharacter] = useState('');
 
   const displayButton = () => {
     if (counter < phrases.length) {
@@ -17,7 +18,8 @@ const Type = ({ phrases }) => {
 
   const changeCopy = () => {
     setButton('');
-    setCopy(phrases[counter]);
+    setCopy(phrases[counter].copy);
+    setCharacter(phrases[counter].character);
     let count = counter + 1;
     setCounter(count);
   }
@@ -29,7 +31,7 @@ const Type = ({ phrases }) => {
   return (
     <div className={styles.TypeWrapper}>
       <div className={styles.Type}>
-        <Avatar imgPath='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/531771b4e8c60.webp' name='Spider-Man' />
+        <Avatar imgPath={character} name='Spider-Man' />
         <div className={styles.TypeCopy}>
           <Typist onTypingDone={displayButton} key={copy} cursor={{ show: false }}>
             {copy}
