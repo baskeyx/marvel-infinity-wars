@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Router from './components/router';
+import User from './Context/User';
 import './App.css';
 import { Amplify, API } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -19,7 +20,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Router />
+      <User>
+        <Router />
+      </User>
     </div>
   );
 }
