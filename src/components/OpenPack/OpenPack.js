@@ -1,23 +1,44 @@
-import { useState, useEffect } from 'react';
-import Card from "../card";
-import styles from './OpenPack.module.scss';
+import { useState, useEffect, useContext } from 'react';
+import Button from '../Button';
+import { UserContext } from '../../Context/User';
+import Pack from '../Pack/Pack';
+import Section from '../Section';
+import Type from '../Type';
 
 const OpenPack = () => {
+  const [user, setUser] = useContext(UserContext);
+  const [opened, setOpened] = useState(false);
   const [open, setOpen] = useState('');
+  const [introDialog, setIntroDialog] = useState('');
   useEffect(() => {
-    setTimeout(()=> setOpen('open'), 1000);
+    // this will be on callback of fetch request
+    setTimeout(() => setOpen('open'), 1000);
+    setTimeout(() => setOpened(true), 5000);
   }, []);
   return (
-    <div className={`${styles.FlipCard} ${styles[open]}`}>
-      <div className={styles.FlipCardInner}>
-        <div className={styles.FlipCardFront}>
-          <img src='http://i.annihil.us/u/prod/marvel/i/mg/6/20/51097abb8e306.jpg' alt='Basic Pack' />
-        </div>
-        <div className={styles.FlipCardBack}>
-          <Card revealCard='reveal' />
-        </div>
-      </div>
-    </div>
+    <>
+    <Section>
+      {introDialog ? <Type phrases={[
+        {
+          copy: 'Would you look at that!',
+          character: '531771b4e8c60.webp',
+        },
+        {
+          copy: 'Looks like we’re in this together!',
+          character: '531771b4e8c60.webp',
+        },
+        {
+          copy: 'Now let’s take on an event!',
+          character: '531771b4e8c60.webp',
+        },
+        {
+          copy: 'Click on the ’events’ tab and let’s see what’s available.',
+          character: '531771b4e8c60.webp',
+        },
+      ]} /> : <Pack open={open} />}
+      {opened && user.intro && !introDialog ? <Button onClick={() => setIntroDialog(true)}>Next</Button> : null}
+      </Section>
+    </>
   )
 };
 
