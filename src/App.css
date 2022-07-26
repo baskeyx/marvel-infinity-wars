@@ -11,6 +11,10 @@ h1, h2 {
   padding: 0;
 }
 
+a, a:visited {
+  text-decoration: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
