@@ -21,6 +21,7 @@
   .CardImage {
     width: 80%;
     align-self: center;
+    transition: 1s all;
   }
 
   .CardStats {
@@ -31,6 +32,7 @@
     font-family: Lato;
 
     .CardStat {
+      transition: 1s all;
       width: 33%;
       display: flex;
       flex-wrap: wrap;
@@ -60,7 +62,8 @@
     width: 20%;
     position: absolute;
     right: 0;
-
+    transform: translateY(0px);
+    transition: 1s all;
     .CardName {
       color:#fff;
       font-family: Lato;
@@ -76,6 +79,41 @@
       }
     }
 
+  }
+  .CardStat:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  .CardStat:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  .CardStat:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  .CardStat:nth-child(4) {
+    transition-delay: 0.8s;
+  }
+  .CardStat:nth-child(5) {
+    transition-delay: 1s;
+  }
+  .CardStat:nth-child(6) {
+    transition-delay: 1.2s;
+  }
+  .CardImage {
+    transition-delay: 1.4s;
+  }
+  .CardNameWrapper {
+    transition-delay: 1.6s;
+  }
+  &.reveal {
+    .CardImage {
+      opacity: 0;
+    }
+    .CardStat {
+      opacity: 0;
+    }
+    .CardNameWrapper {
+      transform: translateY(500px);
+    }
   }
 
 }

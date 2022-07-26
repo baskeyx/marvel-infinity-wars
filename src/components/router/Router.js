@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '../header';
 import Intro from '../../views/intro';
 import Navigation from '../navigation';
-import Card from '../card';
 import Event from '../event';
 import Game from '../game';
+import OpenPack from '../OpenPack/OpenPack';
 
 const Router = () => (
   <BrowserRouter>
@@ -12,8 +12,8 @@ const Router = () => (
     <main>
       <Routes>
         <Route index element={<Intro />} />
-        <Route path='/team' element={<Card />} />
-        <Route path='/recruit' element={<Game />} />
+        <Route path='/team' element={<Game />} />
+        <Route path='/recruit' element={<OpenPack />} />
         <Route path='/events' element={<Event />} />
       </Routes>
       <Navigation />

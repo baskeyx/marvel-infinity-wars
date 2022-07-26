@@ -1,0 +1,48 @@
+.FlipCard {
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.FlipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.FlipCard.open .FlipCardInner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.FlipCardFront, .FlipCardBack {
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.FlipCardFront {
+  position: absolute;
+  background-color: #bbb;
+  color: black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  img {
+    width: 145%;
+    position: absolute;
+  }
+}
+
+/* Style the back side */
+.FlipCardBack {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
