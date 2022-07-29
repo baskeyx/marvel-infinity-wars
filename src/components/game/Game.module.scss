@@ -13,18 +13,6 @@
     font-family: 'Lato';
     max-width: 480px;
 
-    .GameHP {
-      font-size: 16px;
-      padding-top: 26px;
-      text-align: right;
-      width: 100%;
-      padding-right: 10px;
-      @media (min-width: 480px) {
-        padding-top:40px;
-        font-size: 20px;
-      }
-    }
-
     .GameImage {
       width: 50%;
       align-self: center;
@@ -55,7 +43,7 @@
         flex-wrap: wrap;
         color: #fff;
         font-family: Lato;
-    
+        margin-top: 40px;
         .GameStat {
           width: 33%;
           display: flex;
@@ -83,6 +71,18 @@
       }
     
     }
+    
+    .GameHealth {
+      height: 100%;
+      width: 30px;
+      border-left: 2px solid #000;
+      position: relative;
+      .GameHealthBar {
+        height: 80%;
+        background: #ddd;
+        width: 100%;
+      }
+    }
 
   }
 
@@ -96,15 +96,16 @@
         left: 10px;
         right: initial;
       }
-      .GameHP {
-        text-align: left;
-        padding-left: 10px;
+    }
+    .GameHealth {
+      height: 100%;
+      width: 30px;
+      border-right: 2px solid #000;
+      border-left: none;
+      position: relative;
+      .GameHealthBar {
+        height: 20%;
       }
-      // .GameLives {
-      //   text-align: left;
-      //   padding-left: 15px;
-      //   padding-right: 0;
-      // }
     }
   }
 
