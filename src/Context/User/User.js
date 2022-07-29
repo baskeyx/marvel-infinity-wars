@@ -3,7 +3,10 @@ import { useState, createContext } from 'react';
 export const UserContext = createContext();
 
 const User = ({ children }) => {
-  const [user, setUser] = useState({ intro: true });
+  const [user, setUser] = useState({ 
+    intro: true,
+    characters: [],
+  });
   // fetch request to get user details
   // setUser(response)
   return (

@@ -4,7 +4,7 @@ import Avatar from '../avatar';
 import Button from '../Button';
 import styles from './Type.module.scss';
 
-const Type = ({ phrases }) => {
+const Type = ({ phrases, cb }) => {
   const [copy, setCopy] = useState('');
   const [counter, setCounter] = useState(0);
   const [button, setButton] = useState('');
@@ -13,7 +13,9 @@ const Type = ({ phrases }) => {
   const displayButton = () => {
     if (counter < phrases.length) {
       setButton('Next');
-    };
+    } else {
+      if (cb) cb();
+    }
   }
 
   const changeCopy = () => {

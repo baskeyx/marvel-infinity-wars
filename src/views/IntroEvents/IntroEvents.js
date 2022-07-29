@@ -8,7 +8,7 @@ const Events = () => (
     <Type phrases={[
       {
         character: '531771b4e8c60.webp',
-        copy: 'Ah, I remember this one!',
+        copy: 'Ah, I remember this one like it was yesterday!',
       },
       {
         character: '531771b4e8c60.webp',
