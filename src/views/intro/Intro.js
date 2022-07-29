@@ -12,11 +12,11 @@ const Intro = () => (
         character: '531771b4e8c60.webp',
       },
       {
-        copy: 'I just thought I’d swing by & let you know how this thing works.',
+        copy: 'I just thought I’d swing by & let you know how this thing works!',
         character: '531771b4e8c60.webp',
       },
       {
-        copy: 'Firstly we need to recruit a new team member',
+        copy: 'Firstly we need to recruit a new team member.',
         character: '531771b4e8c60.webp',
       },
       {

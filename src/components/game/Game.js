@@ -15,11 +15,7 @@ const Game = () => {
         <img className={styles.GameImage} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/55b6a25e654e6.webp' alt='Iron Man' />
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Iron Man</div>
-          <div className={styles.GameLives}>
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-          </div>
+          <div className={styles.GameHP}><span>100</span> HP</div>
           <div className={styles.GameStats}>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Ene</span></div>
@@ -34,11 +30,7 @@ const Game = () => {
         <img className={styles.GameImage} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/53176a0bb810c.webp' alt='Captain America' />
         <div className={styles.GameInfo}>
           <div className={styles.GameName}>Captain America</div>
-          <div className={styles.GameLives}>
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-            <img className={styles.GameHitPoint} src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/heart.svg' alt='Hit Point' />
-          </div>
+          <div className={styles.GameHP}><span>100</span> HP</div>
           <div className={styles.GameStats}>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(7)}</span><span>Dur</span></div>
             <div className={styles.GameStat}><span className={styles.GameStatRating}>{getRandomStat(6)}</span><span>Ene</span></div>

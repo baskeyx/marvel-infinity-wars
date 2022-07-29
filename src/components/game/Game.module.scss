@@ -1,4 +1,6 @@
 .GameWrapper {
+  margin-top: 20px;
+  border: 3px solid #000;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -11,6 +13,18 @@
     font-family: 'Lato';
     max-width: 480px;
 
+    .GameHP {
+      font-size: 16px;
+      padding-top: 26px;
+      text-align: right;
+      width: 100%;
+      padding-right: 10px;
+      @media (min-width: 480px) {
+        padding-top:40px;
+        font-size: 20px;
+      }
+    }
+
     .GameImage {
       width: 50%;
       align-self: center;
@@ -19,7 +33,7 @@
     .GameInfo {
       display: flex;
       flex-wrap: wrap;
-      padding: 15px 0 10px 0;
+      padding: 8px 0;
       position: relative;
       .GameName {
         position: absolute;
@@ -29,23 +43,9 @@
         text-align: right;
         font-weight: bold;
         white-space: nowrap;
-        padding-right: 15px;
+        right: 10px;
         @media (min-width: 480px) {
           font-size: 22px;
-        }
-      }
-
-      .GameLives {
-        text-align: right;
-        width: 100%;
-        padding: 30px 15px 0 0;
-        font-weight: bold;
-        @media (min-width: 480px) {
-          padding: 40px 15px 0 0;
-        }
-        .GameHitPoint {
-          width: 15px;
-          margin: 0 1px;
         }
       }
 
@@ -65,11 +65,12 @@
           font-size: 16px;
           justify-content: center;
           @media (min-width: 480px) {
-            margin-top: 16px;
+            margin-top: 14px;
+            font-size: 18px;
           }
     
           .GameStatRating {
-            font-size: 26px;
+            font-size: 22px;
             @media (min-width: 480px) {
               font-size: 36px;
             }
@@ -86,19 +87,24 @@
   }
 
   .GamePanel:nth-child(2) {
+    border-top: 3px solid #000;
     background: #4b824b;
     flex-direction: row-reverse;
     .GameInfo {
       .GameName {
         text-align: left;
-        padding-left: 15px;
-        padding-right: 0;
+        left: 10px;
+        right: initial;
       }
-      .GameLives {
+      .GameHP {
         text-align: left;
-        padding-left: 15px;
-        padding-right: 0;
+        padding-left: 10px;
       }
+      // .GameLives {
+      //   text-align: left;
+      //   padding-left: 15px;
+      //   padding-right: 0;
+      // }
     }
   }
 
