@@ -1,25 +1,38 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.scss';
 
-const Navigation = () => (
-  <nav className={styles.Navigation}>
-    <Link to='/'>
-      <img src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/home.svg' alt='Home' />
-      <span>Home</span>
-    </Link>
-    <Link to='/team'>
-      <img src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/users.svg' alt='Team' />
-      <span>Team</span>
-    </Link>
-    <Link to='/recruit'>
-      <img src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/user-plus.svg' alt='Recruit' />
-      <span>Recruit</span>
-    </Link>
-    <Link to='/events'>
-      <img src='https://teamsupreme.s3.eu-west-2.amazonaws.com/public/trophy.svg' alt='Events' />
-      <span>Events</span>
-    </Link>
-  </nav>
-);
+const navigationLinks = [
+  {
+    name: 'Home',
+    image: 'home.svg',
+  },
+  {
+    name: 'Team',
+    image: 'users.svg',
+  },
+  {
+    name: 'Recruit',
+    image: 'user-plus.svg',
+  },
+  {
+    name: 'Events',
+    image: 'trophy.svg',
+  }
+]
+
+const Navigation = () => {
+  const [selected, setSelected] = useState('home');
+  return (
+    <nav className={styles.Navigation}>
+      {navigationLinks.map((link) => (
+        <Link to={`/${link.name === 'Home' ? '' : link.name.toLowerCase()}`} className={selected === link.name ? styles.Selected : ''} onClick={() => setSelected(link.name)}>
+          <img src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${link.image}`} alt={link.name} />
+          <span>{link.name}</span>
+        </Link>
+      ))}
+    </nav>
+  )
+}
 
 export default Navigation;

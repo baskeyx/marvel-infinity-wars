@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Type from "../../components/Type";
 import Game from '../../components/game';
 import Section from '../../components/Section';
+import Fetch from '../../components/Fetch';
+import { UserContext } from '../../Context/User';
 
 const Event = () => {
   const [gameStart, setGameStart] = useState(true);
   const [dialog, setDialog] = useState([]);
-
+  const [user, setUser] = useContext(UserContext);
+  const [game, setGame] = useState({});
   const introDialog = [
     // {
     //   character: '531771b4e8c60.webp',
@@ -40,6 +43,7 @@ const Event = () => {
 
   useEffect(() => {
     setDialog(introDialog);
+    //const characterResponse = await Fetch(`https://vsec9h4b21.execute-api.eu-west-2.amazonaws.com/api/characters/${user.intro ? 1011010 : ''}`);
   }, []);
 
   const onIntroDialogComplete = () => {
