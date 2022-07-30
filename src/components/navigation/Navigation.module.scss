@@ -1,5 +1,5 @@
 .Navigation {
-  height: 60px;
+  height: 53px;
   background: #222;
   position: fixed;
   width: 100%;
@@ -12,6 +12,7 @@
   overflow: hidden;
   a:visited,
   a {
+    border-top: 4px solid #222;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
@@ -33,5 +34,8 @@
       text-align: center;
       padding: 3px 0 0;
     }
+  }
+  a.Selected {
+    border-top: 4px solid red;
   }
 }
