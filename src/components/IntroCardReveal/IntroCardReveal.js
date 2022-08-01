@@ -17,19 +17,19 @@ const IntroCardReveal = () => {
       { showDialog ? <Type phrases={[
         {
           copy: 'Would you look at that!',
-          character: '531771b4e8c60.webp',
+          character: '1011010',
         },
         {
           copy: 'Looks like we’re in this together!',
-          character: '531771b4e8c60.webp',
+          character: '1011010',
         },
         {
           copy: 'Now let’s take on an event!',
-          character: '531771b4e8c60.webp',
+          character: '1011010',
         },
         {
           copy: 'Click on the ’events’ tab and let’s see what’s available.',
-          character: '531771b4e8c60.webp',
+          character: '1011010',
         },
       ]} /> : null }
     </Section>

@@ -43,6 +43,7 @@ const Event = () => {
 
   useEffect(() => {
     setDialog(introDialog);
+    console.log(user)
     //const characterResponse = await Fetch(`https://vsec9h4b21.execute-api.eu-west-2.amazonaws.com/api/characters/${user.intro ? 1011010 : ''}`);
   }, []);
 
@@ -53,7 +54,7 @@ const Event = () => {
 
   return (
     <Section>
-      { dialog.length > 0 ? <Type phrases={dialog} cb={onIntroDialogComplete} /> : null }
+      {/* dialog.length > 0 ? <Type phrases={dialog} cb={onIntroDialogComplete} /> : null */}
       { gameStart ? <Game /> : null }
     </Section>
   );

@@ -9,7 +9,7 @@ const Card = ({ character, revealCard }) => {
   return (
     <div className={`${styles.Card} ${styles[reveal]}`}>
       <div className={styles.CardInfo}>
-        <img className={styles.CardImage} src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${character.id}.webp`} alt={character.name} />
+        <img className={styles.CardImage} src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${character.charId}.webp`} alt={character.name} />
         <div className={styles.CardNameWrapper}>
           <div className={styles.CardName}>{character.name}</div>
         </div>

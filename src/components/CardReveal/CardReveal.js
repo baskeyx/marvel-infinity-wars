@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../Context/User';
+import Server from '../../Server';
 import Fetch from '../Fetch';
 import Card from '../card';
 import styles from './CardReveal.module.scss';
@@ -10,13 +11,16 @@ const CardReveal = () => {
   const [character, setCharacter] = useState('');
 
   const getCharacter = async () => {
-    const characterResponse = await Fetch(`https://vsec9h4b21.execute-api.eu-west-2.amazonaws.com/api/characters/${user.intro ? 1011010 : ''}`);
-    console.log(characterResponse);
-    const userTemp = user;
-    user.characters = [characterResponse.payload]
-    setUser(userTemp);
+    const characterResponse = await Fetch(`${Server}/cards/intro`, { 
+      method: 'POST', 
+      body: JSON.stringify({ userId: user.id }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    setCharacter('');
     setCharacter(characterResponse.payload);
-    setTimeout(() => setOpen('open'), 1000);
+    setTimeout(() => setOpen('open'), 1500);
   }
 
   useEffect(() => {
