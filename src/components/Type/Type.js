@@ -10,11 +10,13 @@ const Type = ({ phrases, cb }) => {
   const [button, setButton] = useState('');
   const [character, setCharacter] = useState('');
 
-  const displayButton = () => {
+  const displayButton = async () => {
     if (counter < phrases.length) {
       setButton('Next');
     } else {
-      if (cb) cb();
+      setCounter(0);
+      if (cb) setTimeout(cb, 3000);
+      // setCopy(phrases[0].copy)
     }
   }
 
@@ -28,12 +30,12 @@ const Type = ({ phrases, cb }) => {
 
   useEffect(()=> {
     changeCopy();
-  }, [])
+  }, [phrases])
 
   return (
     <div className={styles.TypeWrapper}>
       <div className={styles.Type}>
-        <Avatar imgPath={character} name='Spider-Man' />
+        {character !== '' ? <Avatar imgPath={character} name='Spider-Man' /> : null }
         <div className={styles.TypeCopy}>
           <Typist onTypingDone={displayButton} key={copy} cursor={{ show: false }}>
             {copy}
