@@ -7,15 +7,15 @@ const Events = () => (
     <Event />
     <Type phrases={[
       {
-        character: '531771b4e8c60.webp',
+        character: '1011010',
         copy: 'Ah, I remember this one like it was yesterday!',
       },
       {
-        character: '531771b4e8c60.webp',
+        character: '1011010',
         copy: 'What are you waiting for?!',
       },
       {
-        character: '531771b4e8c60.webp',
+        character: '1011010',
         copy:  'Click the event to start it!',
       },
     ]} />
