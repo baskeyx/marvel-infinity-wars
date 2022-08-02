@@ -25,6 +25,7 @@ const User = ({ children }) => {
     <UserContext.Provider value={[user, setUser]}>
       <div>
         {loading ? '' : children}
+        {user.id}
       </div>
     </UserContext.Provider>
   )
