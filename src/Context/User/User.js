@@ -12,7 +12,7 @@ const User = ({ children }) => {
     //const id = iwId ? `/${iwId}` : '';
     const userResponse = await Fetch(`${Server}/users`, {
       method: 'GET',
-      credentials: 'include'
+      withCredentials: true,
     });
     setUser(userResponse.payload);
     //if (userResponse.payload.id) localStorage.setItem('iwId', userResponse.payload.id);
