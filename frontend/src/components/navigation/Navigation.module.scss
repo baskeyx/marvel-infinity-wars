@@ -1,5 +1,5 @@
 .Navigation {
-  height: 53px;
+  height: 52px;
   background: #222;
   position: fixed;
   width: 100%;
@@ -15,7 +15,7 @@
   }
   a:visited,
   a {
-    border-top: 4px solid #222;
+    border-top: 5px solid #222;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
@@ -26,6 +26,7 @@
     height: 100%;
     position: relative;
     width: 25%;
+    margin-top: 2px;
     img {
       width: 25%;
       display: block;
@@ -39,6 +40,6 @@
     }
   }
   a.Selected {
-    border-top: 4px solid red;
+    border-top: 5px solid red;
   }
 }

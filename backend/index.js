@@ -12,6 +12,7 @@ const characterRoutes = require('./routes/characters');
 const eventRoutes = require('./routes/events');
 const userRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
+const packRoutes = require('./routes/packs');
 
 const app = express();
 app.use(cookieParser());
@@ -30,6 +31,7 @@ app.use('/api/characters', characterRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/cards', cardRoutes);
+app.use('/api/packs', packRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
