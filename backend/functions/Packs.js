@@ -1,4 +1,4 @@
-const { pack } = require('../models/pack.model.js');
+const { pack } = require('../models/Pack.model.js');
 
 const getPacks = async (query) => await pack.find(query);
 

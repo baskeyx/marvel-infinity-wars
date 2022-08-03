@@ -18,7 +18,7 @@ const navigationLinks = [
   {
     name: 'Events',
     image: 'trophy.svg',
-  }
+  },
 ]
 
 const Navigation = () => {
