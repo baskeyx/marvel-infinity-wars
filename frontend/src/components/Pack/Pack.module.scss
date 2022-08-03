@@ -1,0 +1,41 @@
+.Pack {
+  max-width: 480px;
+  display: flex;
+  background: #222;
+  text-align: left;
+  color: #fff;
+  font-family: Lato;
+  overflow: hidden;
+  margin: 0 0 20px;
+  border: 3px solid #000;
+  position: relative;
+  .PackImage {
+    width: 40%;
+    align-self: center;
+  }
+  .PackInfo {
+    padding: 12px;
+  }
+  .PackName {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .PackDesc {
+    font-size: 16px;
+  }
+  .PackCost {
+    background: rgb(255, 213, 0);
+    color: #000;
+    display: block;
+    height: 22px;
+    width: 22px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}

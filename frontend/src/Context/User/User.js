@@ -22,8 +22,6 @@ const User = ({ children }) => {
     <UserContext.Provider value={[user, setUser]}>
       <Loading loading={loading}>
         {children}
-        {user.id}
-        Hello
       </Loading>
     </UserContext.Provider>
   )

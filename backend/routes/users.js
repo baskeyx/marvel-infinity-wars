@@ -4,21 +4,16 @@ const getId = require('../functions/getId');
 const { getUserById, createUserWithId } = require('../functions/Users');
 
 router.get('/', async (req, res) => {
-  //console.log(req.session)
   const userId = req.session.userId;
-  console.log(userId);
   let userResponse = {};
   if (!userId) {
     const userId = getId();
     req.session.userId = userId;
     userResponse = await createUserWithId(userId);
-    console.log('create');
   } else {
     userResponse = await getUserById(userId);
-    console.log('pull');
   }
   const { id, coins, intro } = userResponse;
-  console.log({id, coins, intro});
   res.send({id, coins, intro });
 });
 
