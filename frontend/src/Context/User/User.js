@@ -23,6 +23,7 @@ const User = ({ children }) => {
       <Loading loading={loading}>
         {children}
         {user.id}
+        Hello
       </Loading>
     </UserContext.Provider>
   )

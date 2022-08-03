@@ -43,6 +43,3 @@ if (ENVIRONMENT !== 'DEV') {
     res.sendFile(path.join("/root/frontend/build", "index.html"));
   })
 }
-
-// docker build -t marvel-infinity-wars .
-// docker run --name dbtest -p 8000 marvel-infinity-wars
