@@ -15,6 +15,9 @@ const card = mongoose.model('Card', mongoose.Schema({
   },
   xp: { type: Number, default: 0 },
   level: { type: Number, default: 0 },
+  wins: { type: Number, default: 0 },
+  losses: { type: Number, default: 0 },
+  ties: { type: Number, default: 0 },
   time : { type : Number, default: Date.now() },
 }));
 

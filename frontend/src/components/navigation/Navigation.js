@@ -27,7 +27,7 @@ const Navigation = () => {
     <nav className={styles.Navigation}>
       {navigationLinks.map((link) => (
         <Link to={`/${link.name === 'Home' ? '' : link.name.toLowerCase()}`} className={selected === link.name ? styles.Selected : ''} onClick={() => setSelected(link.name)} key={link.name}>
-          <img src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${link.image}`} alt={link.name} />
+          <img width={23} height={23} src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${link.image}`} alt={link.name} />
           <span>{link.name}</span>
         </Link>
       ))}

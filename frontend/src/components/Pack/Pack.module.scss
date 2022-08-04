@@ -9,9 +9,11 @@
   margin: 0 0 20px;
   border: 3px solid #000;
   position: relative;
+  cursor: pointer;
   .PackImage {
     width: 40%;
     align-self: center;
+    aspect-ratio: 1 / 1;
   }
   .PackInfo {
     padding: 12px;
@@ -37,5 +39,8 @@
     position: absolute;
     right: 0px;
     bottom: 0px;
+  }
+  * {
+    pointer-events: none;
   }
 }

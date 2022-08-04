@@ -1,28 +1,47 @@
 const express = require('express');
-const getCharacterById = require('../functions/getCharacterById');
 const getId = require('../functions/getId');
 const { putUserById, getUserById } = require('../functions/Users');
-const { card } = require('../models/Cards.model.js');
+const { getCharacterById } = require('../functions/Characters');
+const { getPackById } = require('../functions/Packs');
+const getRandomInt = require('../functions/getRandomInt');
+const { postCard } = require('../functions/Cards');
+// const { BadRequest } = require('../utils/errors');
 const router = express.Router();
 
-router.post('/intro', async (req, res) => {
-  const { userId } = req.body;
-  const user = await getUserById(userId);
-  let cardResponse = {};
-  const query = await getCharacterById(1011010);
-  const cardId = getId();
-  const cardInfo = {
-    id: cardId,
-    charId: query.id,
-    name: query.name,
-    stats: query.stats,
-  };
-  cardResponse = await card.create(cardInfo);
-  user.cards.push(cardId);
-  await putUserById(userId, user);
-  
-  const { id, charId, name, stats } = cardResponse;
-  res.send({id, charId, name, stats })
+router.post('/:packId', async (req, res, next) => {
+  try {
+    const { userId } = req.session;
+    const { packId } = req.params;
+    const user = await getUserById(userId);
+    const pack = await getPackById(packId);
+    const newCoins = user.coins - pack.cost;
+    let response = {};
+    console.log(newCoins);
+    if (newCoins >= 0) {
+      let updateUser = user;
+      updateUser.coins = newCoins;
+      // await putUserById(userId, updateUser);
+      const characterId = pack.chars[getRandomInt(0, pack.chars.length - 1)]
+      const c = await getCharacterById(characterId);
+      const card = {
+        id: getId(),
+        charId: c.id,
+        userId,
+        name: c.name,
+        stats: c.stats,
+      }
+      const cardResponse = await postCard(card);
+      const { id, charId, name, stats } = cardResponse;
+      response = ({ id, charId, name, stats });
+      console.log(response);
+    }
+    else {
+      if (!userId) throw new BadRequest('User ID required to start a game');
+    }
+    res.send(response);
+  } catch(err) {
+    next(err);
+  }
 });
 
 module.exports = router;
