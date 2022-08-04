@@ -1,9 +1,9 @@
 const express = require('express');
 const {
-  // postDialog,
+  postDialog,
   getDialogById,
 } = require('../functions/Dialogs');
-//const getId = require('../functions/getId')
+const getId = require('../functions/getId')
 const router = express.Router();
 
 router.get('/:dialogId', async (req, res) => {
@@ -13,25 +13,32 @@ router.get('/:dialogId', async (req, res) => {
   res.send({ id, dialog });
 });
 
-// router.get('/', async (req, res) => {
-//   const dialog = {
-//     id: getId(),
-//     dialog: [{
-//       character: '1011010',
-//       copy: 'Here you can open packs to recruit new heroes to your team!',
-//     },
-//     {
-//       character: '1011010',
-//       copy: 'Above you can see the Intro Pack which costs 1 Credit.',
-//     },
-//     {
-//       character: '1011010',
-//       copy: 'Select that pack by clicking on it!',
-//     }],
-//   }
-//   const dialogResponse = await postDialog(dialog)
-//   console.log(dialogResponse);
-//   res.send(dialogResponse);
-// });
+// const test = async () => {
+// const dialog = {
+//   id: getId(),
+//   dialog: [{
+//     copy: 'Would you look at that!',
+//     character: '1011010',
+//   },
+//   {
+//     copy: 'Looks like we’re in this together!',
+//     character: '1011010',
+//   },
+//   {
+//     copy: 'Now let’s take on an event!',
+//     character: '1011010',
+//   },
+//   {
+//     copy: 'Click on the ’events’ tab and let’s see what’s available.',
+//     character: '1011010',
+//   }],
+// }
+
+
+// const dialogResponse = await postDialog(dialog)
+// console.log(dialogResponse);
+// }
+
+// test();
 
 module.exports = router;

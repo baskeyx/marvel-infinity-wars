@@ -41,8 +41,6 @@ app.listen(port, () => {
 });
 
 if (ENVIRONMENT !== 'DEV') {
-  console.log('here');
-  //app.use(express.static(path.join(__dirname, './frontend/build')))
   app.use(express.static(path.join('/root/frontend/build')))
   app.get('*', (req, res) => {
     res.sendFile(path.join("/root/frontend/build", "index.html"));

@@ -4,13 +4,10 @@ import Header from '../header';
 import Intro from '../../views/intro';
 import Navigation from '../navigation';
 import Game from '../game';
-import CardReveal from '../CardReveal';
 import Events from '../../views/Events';
 import IntroEvents from '../../views/IntroEvents';
 import Event from '../../views/Event';
 import { UserContext } from '../../Context/User';
-import IntroCardReveal from '../IntroCardReveal';
-import Pack from '../Pack';
 import Packs from '../../views/Packs';
 
 const Router = () => {
@@ -24,7 +21,6 @@ const Router = () => {
           <Route index element={<Intro />} />
           <Route path='/team' element={<Game />} />
           <Route path='/recruit' element={<Packs />} />
-          {/* <Route path='/recruit' element={user.intro ? <IntroCardReveal /> : <CardReveal/>} /> */}
           <Route path='/events' element={user.intro ? <IntroEvents />: <Events />} />
           <Route path='/event/:id' element={<Event />} /> 
         </Routes>

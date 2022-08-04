@@ -1,39 +1,21 @@
-import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../Context/User';
-import Server from '../../Server';
-import Fetch from '../Fetch';
+import { useState } from 'react';
 import Card from '../card';
 import styles from './CardReveal.module.scss';
 
-const CardReveal = () => {
-  const [user, setUser] = useContext(UserContext);
+const CardReveal = ({ character, btnClick }) => {
   const [open, setOpen] = useState('');
-  const [character, setCharacter] = useState('');
-
-  const getCharacter = async () => {
-    const characterResponse = await Fetch(`${Server}/cards/intro`, { 
-      method: 'POST', 
-      body: JSON.stringify({ userId: user.id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    setCharacter('');
-    setCharacter(characterResponse.payload);
-    setTimeout(() => setOpen('open'), 1500);
+  const [reveal, setReveal] = useState('reveal');
+  const revealCard = () => {
+    setTimeout(() => setReveal(''), 1000)
   }
-
-  useEffect(() => {
-    getCharacter()
-  }, []);
   return (
-    <div className={`${styles.FlipCard} ${styles[open]}`}>
+    <div className={`${styles.FlipCard} ${styles[open]}`} onTransitionEnd={revealCard}>
       <div className={styles.FlipCardInner}>
         <div className={styles.FlipCardFront}>
           <img src='http://i.annihil.us/u/prod/marvel/i/mg/6/20/51097abb8e306.jpg' alt='Basic Pack' />
         </div>
         <div className={styles.FlipCardBack}>
-          {character ? <Card character={character} revealCard='reveal' /> : null }
+          {character ? <Card character={character} setOpen={() => setOpen('open')} reveal={reveal} btnClick={btnClick} /> : null }
         </div>
       </div>
     </div>
