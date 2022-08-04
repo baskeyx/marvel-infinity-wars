@@ -105,17 +105,16 @@
   .CardNameWrapper {
     transition-delay: 1.6s;
   }
-  &.reveal {
-    .CardImage {
-      opacity: 0;
-    }
-    .CardStat {
-      opacity: 0;
-    }
-    .CardNameWrapper {
-      transform: translateY(610px);
-    }
-  }
-
 }
 
+.reveal {
+  .CardImage {
+    opacity: 0;
+  }
+  .CardStat {
+    opacity: 0;
+  }
+  .CardNameWrapper {
+    transform: translateY(610px);
+  }
+}
