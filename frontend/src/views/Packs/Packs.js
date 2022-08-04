@@ -41,7 +41,6 @@ const Packs = () => {
     if (!cardResponse.status) {
       SweetAlert2(cardResponse.payload.message);
     } else {
-      console.log(cardResponse.payload)
       setCard(cardResponse.payload);
       setShowCard(true);
       setShowPacks(false);
