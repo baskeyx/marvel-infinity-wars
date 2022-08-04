@@ -10,6 +10,7 @@ import IntroEvents from '../../views/IntroEvents';
 import Event from '../../views/Event';
 import { UserContext } from '../../Context/User';
 import IntroCardReveal from '../IntroCardReveal';
+import Pack from '../Pack';
 import Packs from '../../views/Packs';
 
 const Router = () => {

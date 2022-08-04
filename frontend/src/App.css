@@ -38,3 +38,14 @@ main {
 img {
   width: 100%;
 }
+
+.swal2-popup {
+  background: #ec1d24;
+  font-family: Lato;
+  color: #fff;
+}
+
+.swal2-styled.swal2-confirm {
+  color: #fff;
+  background: #222;
+}
