@@ -5,16 +5,17 @@ const getId = require('../functions/getId')
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const userId = req.session.userId;
+  const { userId } = req.session;
   let query = {};
   if (!userId) {
     // not yet a user?
   } else {
     const user = await getUserById(userId);
     if (user.intro) {
-      query = { id: 'd556e6b5-7917-46ad-b02b-65bc3923cbbe' };
+      const introId = 'd556e6b5-7917-46ad-b02b-65bc3923cbbe';
+      query = { id: introId };
     } else {
-      query = { id: { $ne: 'd556e6b5-7917-46ad-b02b-65bc3923cbbe' } };
+      query = { id: { $ne: introId } };
     }
   }
   const packs = await getPacks(query);

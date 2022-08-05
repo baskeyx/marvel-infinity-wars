@@ -16,27 +16,22 @@ router.get('/:dialogId', async (req, res) => {
 // const test = async () => {
 // const dialog = {
 //   id: getId(),
-//   dialog: [{
-//     copy: 'Would you look at that!',
-//     character: '1011010',
-//   },
-//   {
-//     copy: 'Looks like we’re in this together!',
-//     character: '1011010',
-//   },
-//   {
-//     copy: 'Now let’s take on an event!',
-//     character: '1011010',
-//   },
-//   {
-//     copy: 'Click on the ’events’ tab and let’s see what’s available.',
-//     character: '1011010',
-//   }],
-// }
-
-
-// const dialogResponse = await postDialog(dialog)
-// console.log(dialogResponse);
+//   dialog: [
+//     {
+//       character: '1011010',
+//       copy: 'Ah, I remember this one like it was yesterday!',
+//     },
+//     {
+//       character: '1011010',
+//       copy: 'What are you waiting for?!',
+//     },
+//     {
+//       character: '1011010',
+//       copy:  'Click the event to start it!',
+//     }
+//   ]}
+//   const dialogResponse = await postDialog(dialog)
+//   console.log(dialogResponse);
 // }
 
 // test();

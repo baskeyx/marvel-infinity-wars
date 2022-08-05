@@ -5,7 +5,6 @@ import Intro from '../../views/intro';
 import Navigation from '../navigation';
 import Game from '../game';
 import Events from '../../views/Events';
-import IntroEvents from '../../views/IntroEvents';
 import Event from '../../views/Event';
 import { UserContext } from '../../Context/User';
 import Packs from '../../views/Packs';
@@ -21,7 +20,7 @@ const Router = () => {
           <Route index element={<Intro />} />
           <Route path='/team' element={<Game />} />
           <Route path='/recruit' element={<Packs />} />
-          <Route path='/events' element={user.intro ? <IntroEvents />: <Events />} />
+          <Route path='/events' element={<Events />} />
           <Route path='/event/:id' element={<Event />} /> 
         </Routes>
         <Navigation />
