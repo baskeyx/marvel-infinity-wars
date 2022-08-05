@@ -23,12 +23,14 @@ const Packs = () => {
       method: 'GET',
       credentials: 'include',
     });
-    setPacks(packsResponse.payload);
-    const dialogResponse = await Fetch('/api/dialogs/74fa44e1-362a-4a38-988a-f0b4fb140543', {
-      method: 'GET',
-      credentials: 'include',
-    });
-    setDialog(dialogResponse.payload);
+    if (user.intro) {
+      setPacks(packsResponse.payload);
+      const dialogResponse = await Fetch('/api/dialogs/74fa44e1-362a-4a38-988a-f0b4fb140543', {
+        method: 'GET',
+        credentials: 'include',
+      });
+      setDialog(dialogResponse.payload);
+    }
     setLoading(false);
   };
 

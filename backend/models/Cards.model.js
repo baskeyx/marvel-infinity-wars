@@ -13,6 +13,7 @@ const card = mongoose.model('Card', mongoose.Schema({
     spe: { type: Number },
     str: { type: Number },
   },
+  colour: { type: String, required: true },
   xp: { type: Number, default: 0 },
   level: { type: Number, default: 0 },
   wins: { type: Number, default: 0 },

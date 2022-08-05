@@ -1,11 +1,25 @@
 const express = require('express');
-const { event } = require('../models/Event.model.js');
+const { getEvents, getEventById } = require('../functions/Events.js');
+const { getUserById } = require('../functions/Users.js');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const query = await event.find();
+  const { userId } = req.session;
+  let query = {};
+  if (!userId) {
+    // not a user
+  } else {
+    const user = await getUserById(userId);
+    if (user.intro) {
+      const introId = '6527'
+      query = { id: introId };
+    } else {
+      query = { id: { $ne: introId } };
+    }
+  }
+  const eventsResponse = await getEvents(query); 
   const events = [];
-  query.forEach((e) => {
+  eventsResponse.forEach((e) => {
     const { id, name, description, characters, enemies } = e;
     events.push({
       name,
@@ -20,9 +34,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:eventId', async (req, res) => {
   const { eventId } = req.params;
-  const query = await event.find({ id: eventId });
-  const { id, name, description, characters, enemies, dialog } = query[0];
-  const eventResponse = {
+  const eventResponse = getEventById(eventId);
+  const { id, name, description, characters, enemies, dialog } = eventResponse;
+  const event = {
     name,
     id,
     description,
@@ -30,43 +44,7 @@ router.get('/:eventId', async (req, res) => {
     enemies,
     dialog,
   }
-  res.send(eventResponse);
+  res.send(event);
 });
 
 module.exports = router;
-
-// const query = await event.create({
-//   id: 6527,
-//   name: 'The Amazing Spider-Man (1963) #14',
-//   description: 'The first major battle between Spidey and his archnemesis, the Green Goblin!',
-//   characters: [1011010],
-//   enemies: [1011435],
-//   dialog: [{
-//     character: '<player1>',
-//     copy: 'Hold it, fella!!'
-//   },
-//   {
-//     character: '<player1>',
-//     copy: 'How about giving a guy a lift?',
-//   },
-//   {
-//     character: '1011435',
-//     copy: 'Spider-Man!! I’ve been waiting for you!!'
-//   },
-//   {
-//     character: '1011435',
-//     copy: 'I knew if I flew around the city, you’d be sure to investigate sooner or later!',
-//   },
-//   {
-//     character: '<player1>',
-//     copy: 'The Green Goblin!!'
-//   },
-//   {
-//     character: '1011435',
-//     copy: 'Why don’t you quit now, Spider-Man, and save us both a lot of trouble?!!'
-//   },
-//   {
-//     character: '<player1>',
-//     copy: 'I don’t think so Gobby!!',
-//   }],
-// })

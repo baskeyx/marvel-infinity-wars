@@ -14,6 +14,7 @@ const userRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
 const packRoutes = require('./routes/packs');
 const dialogRoutes = require('./routes/dialogs');
+const gameRoutes = require('./routes/games');
 
 const app = express();
 app.use(cookieParser());
@@ -34,6 +35,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/cards', cardRoutes);
 app.use('/api/packs', packRoutes);
 app.use('/api/dialogs', dialogRoutes);
+app.use('/api/games', gameRoutes);
+
 app.use(handleErrors);
 
 app.listen(port, () => {
