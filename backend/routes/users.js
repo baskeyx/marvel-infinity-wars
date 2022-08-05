@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
   } else {
     userResponse = await getUserById(userId);
   }
-  const { id, coins, intro } = userResponse;
-  res.send({id, coins, intro });
+  const { id, coins, intro, selected } = userResponse;
+  res.send({id, coins, intro, selected });
 });
 
 // router.get('/:userId', async (req, res) => {

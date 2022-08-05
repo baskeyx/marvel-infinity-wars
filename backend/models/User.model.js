@@ -9,6 +9,7 @@ const user = mongoose.model('Users', mongoose.Schema({
   time : { type : Number, default: Date.now() },
   events: { type: Array, default: [] },
   email: { type: String, default: '' },
+  selected: { type: String, default: '' },
 }));
 
 exports.user = user;
