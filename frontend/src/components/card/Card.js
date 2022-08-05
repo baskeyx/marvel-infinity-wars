@@ -1,8 +1,8 @@
 import styles from './Card.module.scss';
 import Button from '../Button';
 
-const Card = ({ character, setOpen, reveal, btnClick }) => (
-  <div className={styles[reveal]}>
+const Card = ({ character, setOpen, hide, btnClick }) => (
+  <div className={styles[hide]}>
     <div className={`${styles.Card}`}>
       <div className={styles.CardInfo}>
         <img className={styles.CardImage} src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${character.charId}.webp`} alt={character.name} onLoad={setOpen ? setOpen : null} />
@@ -19,7 +19,7 @@ const Card = ({ character, setOpen, reveal, btnClick }) => (
         <div className={styles.CardStat}><span className={styles.CardStatRating}>{character.stats.str}</span><span>Strength</span></div>
       </div>
     </div>
-    <Button onClick={btnClick}>OK</Button>
+    <Button theme={hide}  onClick={btnClick}>OK</Button>
   </div>
 )
 

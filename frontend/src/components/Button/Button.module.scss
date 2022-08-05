@@ -7,8 +7,15 @@
   cursor: pointer;
   font-size: 17px;
   padding: 15px;
-  margin: 6px 0;
+  margin: 5px 0;
   font-family: Lato;
   text-transform: uppercase;
   min-width: 100px;
+  opacity: 1;
+  transition: all 1s;
+  transition-delay: 2s;
+}
+
+.Button.Hide {
+  opacity: 0; 
 }
