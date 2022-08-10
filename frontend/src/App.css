@@ -29,16 +29,6 @@ main {
   max-width: 480px;
 }
 
-@media (min-width: 480px) {
-  main {
-    margin: 70px auto;
-  }
-}
-
-img {
-  width: 100%;
-}
-
 .swal2-popup {
   background: #ec1d24;
   font-family: Lato;
@@ -48,4 +38,46 @@ img {
 .swal2-styled.swal2-confirm {
   color: #fff;
   background: #222;
+}
+
+.green {
+  background: #4b824b;
+}
+
+.cyan {
+  background: #37aeb6;
+}
+
+.red {
+  background: #8e2617;
+}
+
+.purple {
+  background: #402656;
+}
+
+.grey {
+  background: #8b8b8b;
+}
+
+.blue {
+  background: #286b98;
+}
+
+.yellow {
+  background: #bf9d18;
+}
+
+.orange {
+  background: #c16115;
+}
+
+@media (min-width: 480px) {
+  main {
+    margin: 70px auto;
+  }
+}
+
+img {
+  width: 100%;
 }

@@ -1,63 +1,87 @@
 import { useState, useEffect, useContext } from 'react';
-import Type from "../../components/Type";
-import Game from '../../components/game';
-import Section from '../../components/Section';
-import Fetch from '../../components/Fetch';
+import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../Context/User';
+import Fetch from '../../components/Fetch';
+import Loading from '../../components/Loading';
+import Type from '../../components/Type';
+import Section from '../../components/Section';
 
 const Event = () => {
-  const [gameStart, setGameStart] = useState(true);
-  const [dialog, setDialog] = useState([]);
   const [user, setUser] = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
+  const [dialog, setDialog] = useState([]);
+  const [dialogCompleted, setDialogCompleted] = useState(false);
   const [game, setGame] = useState({});
-  const introDialog = [
-    {
-      character: '1011010',
-      copy: 'Hold it, fella!!'
-    },
-    {
-      character: '1011010',
-      copy: 'How about giving a guy a lift?',
-    },
-    // {
-    //   character: '1011435',
-    //   copy: 'Spider-Man!! I’ve been waiting for you!!'
-    // },
-    // {
-    //   character: '1011435',
-    //   copy: 'I knew if I flew around the city, you’d be sure to investigate sooner or later!',
-    // },
-    // {
-    //   character: '1011010',
-    //   copy: 'The Green Goblin!!'
-    // },
-    // {
-    //   character: '1011435',
-    //   copy: 'Why don’t you quit now, Spider-Man, and save us both a lot of trouble?!!'
-    // },
-    // {
-    //   character: '1011010',
-    //   copy: 'I don’t think so Gobby!!',
-    // },
-  ]
+  const { eventId } = useParams();
 
-  useEffect(() => {
-    setDialog(introDialog);
-    console.log(user)
-    //const characterResponse = await Fetch(`https://vsec9h4b21.execute-api.eu-west-2.amazonaws.com/api/characters/${user.intro ? 1011010 : ''}`);
-  }, []);
-
-  const onIntroDialogComplete = async () => {
-    setTimeout(() => setGameStart(true), 2000);
-    setDialog([{copy: 'Spider-Man vs Green Goblin', character: ''}])
+  const getEvent = async () => {
+    const eventResponse = await Fetch(`/api/events/${eventId}`, {
+      method: 'GET',
+      credentials: 'include',
+    })
+    console.log(eventResponse);
+    if (eventResponse.status) {
+      setDialog(eventResponse.payload.dialog);
+      const gameResponse = await Fetch('/api/games', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify({
+          eventId,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      setGame(gameResponse.payload);
+    }
+    
+    setLoading(false);
   }
+  
 
+  // const gameProgress = async (id) => {
+  //   const gameResponse = await Fetch(`/api/games/${id ? id : game.id}/progress`, {
+  //     method: 'PUT',
+  //     credentials: 'include',
+  //   });
+    
+  // }
+
+  // const gameStart = async (id) => {
+  //   const gameResponse = await Fetch(`/api/games/${id ? id : game.id}/start`, {
+  //     method: 'PUT',
+  //     credentials: 'include',
+  //   });
+  //   setGame(gameResponse.payload);
+  //   setDialog(gameResponse.payload.output);
+  // }
+
+  // const selectAttribute = async (e) => {
+  //   if (game.turn) return;
+  //   const gameResponse = await Fetch(`/api/games/${game.id}`, {
+  //     method: 'PUT',
+  //     credentials: 'include',
+  //     body: JSON.stringify({
+  //       attribute: e.target.id
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   console.log(gameResponse.payload);
+  // }
+  
+  useEffect(() => {
+    getEvent();
+  }, [])
   return (
-    <Section>
-      {/* dialog.length > 0 ? <Type phrases={dialog} cb={onIntroDialogComplete} /> : null */}
-      { gameStart ? <Game /> : null }
-    </Section>
-  );
-};
+    <Loading loading={loading}>
+      <Section>
+        <Type phrases={dialog} cb={() => setDialogCompleted(true)} />
+        {dialogCompleted ? <Link to={`/game/${game.id}`}>Start</Link>: null }
+      </Section>
+    </Loading>
+  )
+}
 
 export default Event;

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '../header';
 import Intro from '../../views/intro';
 import Navigation from '../navigation';
-import Game from '../game';
+import Game from '../../views/Game';
 import Events from '../../views/Events';
 import Event from '../../views/Event';
 import { UserContext } from '../../Context/User';
@@ -21,7 +21,8 @@ const Router = () => {
           <Route path='/team' element={<Game />} />
           <Route path='/recruit' element={<Packs />} />
           <Route path='/events' element={<Events />} />
-          <Route path='/event/:id' element={<Event />} /> 
+          <Route path='/event/:eventId' element={<Event />} /> 
+          <Route path='/game/:gameId' element={<Game />} />
         </Routes>
         <Navigation />
       </main>
