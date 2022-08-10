@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../Context/User';
 import Fetch from '../../components/Fetch';
-import Event from '../../components/Event';
+import Event from '../../components/Event2';
 import Section from '../../components/Section';
 import Type from '../../components/Type';
 
