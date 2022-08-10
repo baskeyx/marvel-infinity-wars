@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../Context/User';
 import Fetch from '../../components/Fetch';
-// import Event from '../../components/Event';
+import Event from '../../components/Event';
 import Section from '../../components/Section';
 import Type from '../../components/Type';
 
@@ -31,7 +31,7 @@ const Events = () => {
   }, []);
   return (
     <Section>
-      {/* {events.map((e) => <Event key={e.id} id={e.id} name={e.name} description={e.description} characters={e.characters} /> )} */}
+      {events.map((e) => <Event key={e.id} id={e.id} name={e.name} description={e.description} characters={e.characters} /> )}
       {dialog.id ? <Type phrases={dialog.dialog} /> : null }
     </Section>  
   );
