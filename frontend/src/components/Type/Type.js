@@ -10,10 +10,12 @@ const Type = ({ phrases, cb }) => {
   const [button, setButton] = useState('');
   const [character, setCharacter] = useState('');
 
-  const displayButton = async () => {
+  const onTypingDone = async () => {
     if (counter < phrases.length) {
+      console.log('show button');
       setButton('Next');
     } else {
+      console.log('reset');
       setCounter(0);
       if (cb) setTimeout(cb, 1000);
     }
@@ -36,7 +38,7 @@ const Type = ({ phrases, cb }) => {
       <div className={styles.Type}>
         {character !== '' ? <Avatar imgPath={character} name='Spider-Man' /> : null }
         <div className={styles.TypeCopy}>
-          <Typist onTypingDone={displayButton} key={copy} cursor={{ show: false }}>
+          <Typist onTypingDone={onTypingDone} key={copy} cursor={{ show: false }}>
             {copy}
           </Typist>
         </div>

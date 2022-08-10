@@ -5,6 +5,7 @@ import Section from '../../components/Section';
 import Loading from '../../components/Loading';
 import Fetch from '../../components/Fetch';
 import Type from '../../components/Type';
+import Anchor from '../../components/Anchor';
 
 const Game = () => {
   const [game, setGame] = useState([]);
@@ -36,9 +37,10 @@ const Game = () => {
       setLoading(false);
     } else {
       setGame(gameTemp);
-      // setDialog([
-      //   { character: '', copy: 'Choose an attribute' },
-      // ])
+      if (gameTemp.completed) return false;
+      setDialog([
+        { character: '', copy: 'Choose an attribute' },
+      ])
     }
   }
 
@@ -62,6 +64,7 @@ const Game = () => {
       <Section>
         {game.players ? <Battle game={game} selectAttribute={selectAttribute} /> : 'Game could not be loaded' }
         {game.output ? <Type phrases={dialog} cb={afterDialog} /> : null}
+        {game.completed ? <Anchor to='/gameover'>Finish</Anchor> : null }
       </Section>
     </Loading>
   )
