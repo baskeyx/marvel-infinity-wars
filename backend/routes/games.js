@@ -45,7 +45,7 @@ router.post('/', async (req, res, next) => {
         }
       ]
       const turn = getRandomInt(0,1);
-      const dialog = [];
+      const dialog = []; 
       dialog.push({character: '', copy:`${players[0].name} vs ${players[1].name}`});
       dialog.push({character: '', copy:`${players[Number(turn)].name} goes first!`});
       if (!turn) dialog.push({character: '', copy:'Select an attribute!'});
