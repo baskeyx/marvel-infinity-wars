@@ -1,9 +1,11 @@
 const { user } = require('../models/User.model.js');
+const { BadRequest } = require('../utils/errors');
 
 const createUserWithId = async (id) => await user.create({ id });
 
 const getUserById = async (id) => {
   const userResponse = await user.find({ id });
+  if (!userResponse[0]) throw new BadRequest('Invalid User ID')
   return userResponse[0];
 }
 

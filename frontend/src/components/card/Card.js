@@ -1,5 +1,6 @@
-import styles from './Card.module.scss';
+import Server from '../../Server';
 import Button from '../Button';
+import styles from './Card.module.scss';
 
 const Card = ({ character, setOpen, hide, btnClick }) => {
   const onImageLoaded = () => {
@@ -7,9 +8,9 @@ const Card = ({ character, setOpen, hide, btnClick }) => {
   }
   return (
     <div className={styles[hide]}>
-      <div className={`${styles.Card}`}>
+      <div className={`${styles.Card} ${character.colour}`}>
         <div className={styles.CardInfo}>
-          <img className={styles.CardImage} src={`https://teamsupreme.s3.eu-west-2.amazonaws.com/public/${character.charId}.webp`} alt={character.name} onLoad={onImageLoaded} />
+          <img className={styles.CardImage} src={`${Server}${character.charId}.webp`} alt={character.name} onLoad={onImageLoaded} />
           <div className={styles.CardNameWrapper}>
             <div className={styles.CardName}>{character.name}</div>
           </div>

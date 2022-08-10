@@ -15,8 +15,7 @@ const Type = ({ phrases, cb }) => {
       setButton('Next');
     } else {
       setCounter(0);
-      if (cb) setTimeout(cb, 3000);
-      // setCopy(phrases[0].copy)
+      if (cb) setTimeout(cb, 1000);
     }
   }
 

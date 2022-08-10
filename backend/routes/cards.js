@@ -28,8 +28,8 @@ router.post('/:packId', async (req, res, next) => {
         colour: c.colour,
       }
       const cardResponse = await postCard(card);
-      const { id, charId, name, stats } = cardResponse;
-      response = {id, charId, name, stats}
+      const { id, charId, name, stats, colour } = cardResponse;
+      response = {id, charId, name, stats, colour}
       let updateUser = user;
       updateUser.coins = newCoins;
       if (user.selected === '') {
