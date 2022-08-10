@@ -5,6 +5,7 @@ import Fetch from '../../components/Fetch';
 import Loading from '../../components/Loading';
 import Type from '../../components/Type';
 import Section from '../../components/Section';
+import Anchor from '../../components/Anchor';
 
 const Event = () => {
   const [user, setUser] = useContext(UserContext);
@@ -37,40 +38,6 @@ const Event = () => {
     
     setLoading(false);
   }
-  
-
-  // const gameProgress = async (id) => {
-  //   const gameResponse = await Fetch(`/api/games/${id ? id : game.id}/progress`, {
-  //     method: 'PUT',
-  //     credentials: 'include',
-  //   });
-    
-  // }
-
-  // const gameStart = async (id) => {
-  //   const gameResponse = await Fetch(`/api/games/${id ? id : game.id}/start`, {
-  //     method: 'PUT',
-  //     credentials: 'include',
-  //   });
-  //   setGame(gameResponse.payload);
-  //   setDialog(gameResponse.payload.output);
-  // }
-
-  // const selectAttribute = async (e) => {
-  //   if (game.turn) return;
-  //   const gameResponse = await Fetch(`/api/games/${game.id}`, {
-  //     method: 'PUT',
-  //     credentials: 'include',
-  //     body: JSON.stringify({
-  //       attribute: e.target.id
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  //   console.log(gameResponse.payload);
-  // }
-  
   useEffect(() => {
     getEvent();
   }, [])
@@ -78,7 +45,7 @@ const Event = () => {
     <Loading loading={loading}>
       <Section>
         <Type phrases={dialog} cb={() => setDialogCompleted(true)} />
-        {dialogCompleted ? <Link to={`/game/${game.id}`}>Start</Link>: null }
+        {dialogCompleted ? <Anchor to={`/game/${game.id}`}>Start</Anchor>: null } 
       </Section>
     </Loading>
   )
