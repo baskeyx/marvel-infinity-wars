@@ -8,6 +8,7 @@ import Events from '../../views/Events';
 import Event from '../../views/Event';
 import { UserContext } from '../../Context/User';
 import Packs from '../../views/Packs';
+import Team from '../../views/Team';
 
 const Router = () => {
   const user = useContext(UserContext)[0];
@@ -18,7 +19,7 @@ const Router = () => {
       <main>
         <Routes>
           <Route index element={<Intro />} />
-          <Route path='/team' element={<Game />} />
+          <Route path='/team' element={<Team />} />
           <Route path='/recruit' element={<Packs />} />
           <Route path='/events' element={<Events />} />
           <Route path='/event/:eventId' element={<Event />} /> 
