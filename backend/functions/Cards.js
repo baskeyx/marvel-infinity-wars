@@ -7,4 +7,6 @@ const getCardById = async (id) => {
   return cardResponse[0];
 }
 
-module.exports = { postCard, getCardById };
+const getCardsByUserId = async (userId) => await card.find({ userId });
+
+module.exports = { postCard, getCardById, getCardsByUserId };

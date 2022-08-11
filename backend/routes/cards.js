@@ -4,9 +4,19 @@ const { putUserById, getUserById } = require('../functions/Users');
 const { getCharacterById } = require('../functions/Characters');
 const { getPackById } = require('../functions/Packs');
 const getRandomInt = require('../functions/getRandomInt');
-const { postCard } = require('../functions/Cards');
+const { postCard, getCardsByUserId } = require('../functions/Cards');
 const { BadRequest } = require('../utils/errors');
 const router = express.Router();
+
+router.get('/', async (req, res, next) => {
+  try {
+    const { userId } = req.session;
+    const cardsResponse = await getCardsByUserId(userId);
+    res.send(cardsResponse);
+  } catch(err) {
+    next(err);
+  }
+})
 
 router.post('/:packId', async (req, res, next) => {
   try {
