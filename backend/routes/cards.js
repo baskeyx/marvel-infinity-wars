@@ -1,7 +1,7 @@
 const express = require('express');
 const getId = require('../functions/getId');
 const { putUserById, getUserById } = require('../functions/Users');
-const { getCharacterById } = require('../functions/Characters');
+const { getCharacterById, getRandomCharacter } = require('../functions/Characters');
 const { getPackById } = require('../functions/Packs');
 const getRandomInt = require('../functions/getRandomInt');
 const { postCard, getCardsByUserId } = require('../functions/Cards');
@@ -26,9 +26,24 @@ router.post('/:packId', async (req, res, next) => {
     const pack = await getPackById(packId);
     const newCoins = user.coins - pack.cost;
     let response = {};
+    let c = {};
     if (newCoins >= 0) {
-      const characterId = pack.chars[getRandomInt(0, pack.chars.length - 1)]
-      const c = await getCharacterById(characterId);
+      if (packId === '7405ad99-fea3-4320-bdf8-e9637aae0d8c') {
+        const randomInt = getRandomInt(0, 100);
+        let query = {};
+        if (randomInt <= 90) {
+          query = {total: { $lt: 21  }}
+        } else if (randomInt <= 99) {
+          query = {total: { $gt: 20, $lt: 31  }}
+        } else {
+          query = {total: { $gt: 30  }}
+        }
+        c = await getRandomCharacter(query);
+        console.log(c);
+      } else {
+        const characterId = pack.chars[getRandomInt(0, pack.chars.length - 1)]
+        c = await getCharacterById(characterId);
+      }
       const card = {
         id: getId(),
         charId: c.id,

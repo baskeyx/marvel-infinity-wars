@@ -1,4 +1,5 @@
 const { character } = require('../models/Character.model.js');
+const getRandomInt = require('./getRandomInt.js');
 const getRandomStats = require('./getRandomStats');
 
 const getCharacterById = async (charId) => {
@@ -13,4 +14,31 @@ const getCharacterById = async (charId) => {
   return characterResponse;
 }
 
-module.exports = { getCharacterById };
+const getRandomCharacter = async (query) => {
+  const characterResponse = await character.find(query);
+  const randomInt = getRandomInt(0, characterResponse.length - 1);
+  console.log(characterResponse.length, randomInt) 
+  const { name, colour, stats, id } = characterResponse[randomInt];
+  const c = {
+    name,
+    colour,
+    id,
+    stats: getRandomStats(stats),
+  }
+  return c;
+}
+
+// const updateCharacters = async () => {
+//   const query = await character.updateMany({},{$set: {'playable':false}})
+//   console.log(query);
+// }
+
+// updateCharacters()
+
+// const findCharacters = async () => {
+//   console.log(await (await character.find({total: { $gt: 30  }})).length);
+// }
+
+// findCharacters()
+
+module.exports = { getCharacterById, getRandomCharacter };

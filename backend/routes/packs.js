@@ -11,27 +11,33 @@ router.get('/', async (req, res) => {
     // not yet a user?
   } else {
     const user = await getUserById(userId);
+    const introId = 'd556e6b5-7917-46ad-b02b-65bc3923cbbe';
     if (user.intro) {
-      const introId = 'd556e6b5-7917-46ad-b02b-65bc3923cbbe';
       query = { id: introId };
     } else {
       query = { id: { $ne: introId } };
     }
   }
-  const packs = await getPacks(query);
+  const packsResponse = await getPacks(query);
+  const packs = [];
+  packsResponse.forEach((p) => {
+    const { id, name, description, cost } = p;
+    packs.push({ id, name, description, cost });
+  })
   res.send(packs);
 });
 
-// router.get('/', async (req, res) => {
+// const createPackz = async () => {
 //   const packsResponse = await createPack({
 //     id: getId(),
-//     chars: [1011010],
-//     cost: 1,
-//     name: 'Intro Pack',
-//     description: 'Get a powerful recruit to join your team temporarily.'
+//     chars: [],
+//     cost: 3,
+//     name: 'Basic Pack',
+//     description: 'High chance for a low rated hero, slim chance for ultimate hero.'
 //   })
-//   console.log(packsResponse)
-//   res.send(packsResponse);
-// });
+//   console.log(packsRes)
+// }
+
+// createPackz();
 
 module.exports = router;
