@@ -11,7 +11,7 @@ const hidePlayersAttributes = (stats, attributes) => {
   const statsDisplay = {}
     for (const [key, value] of Object.entries(stats)) {
       if (!attributes.includes(key)) { 
-        statsDisplay[key] = '?' 
+        statsDisplay[key] = '??' 
       } else {
         statsDisplay[key] = value;
       }
@@ -34,36 +34,39 @@ const handleRound = (game, attribute) => {
   const dialog = [];
   dialog.push({
     character: '',
-    copy: `${players[Number(turn)].name} plays the ${attributesFull[attribute]} attribute!`
+    copy: `${players[Number(turn)].name} plays the ${attributesFull[attribute]} attribute..`
   })
   const score = players[0].stats[attribute] - players[1].stats[attribute];
+  let coins = 0;
   if (score > 0) {
     players[1].hp -= score;
     dialog.push({
       character: '',
-      copy: `${players[0].name} beats ${players[1].name} by ${score} points`,
+      copy: `${players[0].name} beats ${players[1].name} by ${score} points!`,
     })
-    if (players[1].hp < 0) {
+    if (players[1].hp <= 0) {
       players[1].hp = 0;
       dialog.push({
         character: '',
         copy: `${players[0].name} defeats ${players[1].name}!!`
       })
       completed = true;
+      coins = 3;
     }
   } else if (score < 0) {
     players[0].hp += score;
     dialog.push({
       character: '',
-      copy: `${players[1].name} beats ${players[0].name} by ${score *-1} points`,
+      copy: `${players[1].name} beats ${players[0].name} by ${score *-1} points!`,
     })
-    if (players[0].hp < 0) {
+    if (players[0].hp <= 0) {
       players[0].hp = 0;
       dialog.push({
         character: '',
         copy: `${players[1].name} defeats ${players[0].name}!!`
       })
       completed = true;
+      coins = 1;
     }
   } else {
     dialog.push({
@@ -72,12 +75,21 @@ const handleRound = (game, attribute) => {
     })
   }
   attributes.push(attribute);
+  if (attributes.length === 6 && !completed) {
+    dialog.push({
+      character: '',
+      copy: `The game finishes in a tie!`
+    })
+    coins = 2
+    completed = true;
+  }
   return {
     players,
     completed,
     attributes,
     turn: !turn,
     output: dialog,
+    coins,
   }
 }
 

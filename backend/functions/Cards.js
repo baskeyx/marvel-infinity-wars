@@ -9,4 +9,6 @@ const getCardById = async (id) => {
 
 const getCardsByUserId = async (userId) => await card.find({ userId });
 
-module.exports = { postCard, getCardById, getCardsByUserId };
+const deleteCardById = async (id) => await card.remove({ id })
+
+module.exports = { postCard, getCardById, getCardsByUserId, deleteCardById };

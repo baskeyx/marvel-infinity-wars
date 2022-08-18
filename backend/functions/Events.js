@@ -16,7 +16,7 @@ const createEvent = async () => {
     description: 'Heroes and villains square off with the victor promised their greatest desires!',
     characters: ['*'],
     enemies: ['*'],
-    dialog: [],
+    dialog: [{character:'', copy: 'The secret wars match up is made!'}],
   })
   return query;
 }

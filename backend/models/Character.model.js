@@ -14,7 +14,9 @@ const character = mongoose.model('Characters', mongoose.Schema({
     str: { type: Number },
   },
   time : { type : Number, default: Date.now() },
-  total: { type: Number }
+  total: { type: Number },
+  packable: { type: Boolean, default: false },
+  playable: { type: Boolean, default: false },
 }));
 
 exports.character = character;
