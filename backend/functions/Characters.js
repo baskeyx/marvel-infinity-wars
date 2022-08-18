@@ -41,4 +41,35 @@ const getRandomCharacter = async (query) => {
 
 // findCharacters()
 
+// const addCharacter = async () => {
+//   const input = {
+//     id: 1011025,
+//     name: "Thor",
+//     type: "hero",
+//     colour: "orange",
+//     stats: {
+//       dur: 7,
+//       ene: 7,
+//       fig: 7,
+//       int: 7,
+//       spe: 7,
+//       str: 7,
+//     }
+//   }
+  
+//   let total = 0;
+  
+//   for (const [key, value] of Object.entries(input.stats)) {
+//     total = total + value;
+//   }
+
+//   const create = await character.create(input)
+
+//   console.log(create);
+  
+//   input.total = total;
+// }
+
+// addCharacter();
+
 module.exports = { getCharacterById, getRandomCharacter };

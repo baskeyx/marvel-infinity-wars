@@ -18,27 +18,23 @@ router.get('/:dialogId', async (req, res) => {
 //   id: getId(),
 //   dialog: [
 //     {
-//       copy: 'And that’s it.. You’ve got the basics of Infinity Wars!',
+//       copy: 'Here you can view all your recruited heroes and their stats!',
 //       character: '1011010',
 //     },
 //     {
-//       copy: 'I’ve gotta shoot as I promised Aunt May I’d help her out with some chores.',
+//       copy: 'If you click on a hero you’ll see a red border meaning they’re selected.',
 //       character: '1011010',
 //     },
 //     {
-//       copy: 'But you should get on fine without me!',
+//       copy: 'Click on the Spider-Man card!',
 //       character: '1011010',
 //     },
 //     {
-//       copy: 'Remember two things:',
+//       copy: 'And now we’re ready to head to an event!',
 //       character: '1011010',
 //     },
 //     {
-//       copy: 'With great power comes great responsibility!',
-//       character: '1011010',
-//     },
-//     {
-//       copy: 'and two, to recruit new heroes head to the recruit section!',
+//       copy: 'Click the ’Events’ tab below to see what’s available!',
 //       character: '1011010',
 //     },
 //     ]}

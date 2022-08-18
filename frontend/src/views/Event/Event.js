@@ -20,7 +20,6 @@ const Event = () => {
       method: 'GET',
       credentials: 'include',
     })
-    console.log(eventResponse);
     if (eventResponse.status) {
       setDialog(eventResponse.payload.dialog);
       const gameResponse = await Fetch('/api/games', {

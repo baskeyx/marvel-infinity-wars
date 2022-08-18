@@ -12,10 +12,8 @@ const Type = ({ phrases, cb }) => {
 
   const onTypingDone = async () => {
     if (counter < phrases.length) {
-      console.log('show button');
       setButton('Next');
     } else {
-      console.log('reset');
       setCounter(0);
       if (cb) setTimeout(cb, 1000);
     }
