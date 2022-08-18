@@ -10,7 +10,12 @@ router.get('/', async (req, res, next) => {
   try {
     const { userId } = req.session;
     let query = {};
+    let selectedCard = {};
     const user = await getUserById(userId);
+    if (!user.id) throw new BadRequest('User does not exist');
+    if (user.selected !== '') {
+      selectedCard = await getCardById(user.selected);
+    }
     const introId = '6527'
     if (user.intro) {
       query = { id: introId };
@@ -20,13 +25,15 @@ router.get('/', async (req, res, next) => {
     const eventsResponse = await getEvents(query);
     const events = [];
     eventsResponse.forEach((e) => {
-      const { id, name, description, characters, enemies } = e;
+      let valid = false;
+      const { id, name, description, characters } = e;
+      if (characters.includes(selectedCard.charId) || characters[0] === '*') valid = true;
+      if (user.selected === '') valid = false;
       events.push({
         name,
         id,
         description,
-        characters,
-        enemies,
+        valid,
       })
     })
     res.send(events);

@@ -57,9 +57,9 @@ router.post('/:packId', async (req, res, next) => {
       response = {id, charId, name, stats, colour}
       let updateUser = user;
       updateUser.coins = newCoins;
-      if (user.selected === '') {
-        updateUser.selected = id;
-      }
+      // if (user.selected === '') {
+      //   updateUser.selected = id;
+      // }
       await putUserById(userId, updateUser);
     }
     else {
