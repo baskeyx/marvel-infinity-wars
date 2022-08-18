@@ -1,8 +1,8 @@
 import Server from '../../Server';
 import styles from './Member.module.scss';
 
-const Member = ({ member }) => (
-  <div key={member.id} className={`${styles.GamePanel} ${member.colour}`}>
+const Member = ({ member, selected, onClick }) => (
+  <div key={member.id} className={`${styles.GamePanel} ${member.colour} ${styles[selected ? 'Selected' : '']}`} onClick={onClick}>
     <img className={styles.GameImage} src={`${Server}${member.charId}.webp`} alt={member.name} id={member.id} />
     <div className={styles.GameInfo}>
       <div className={styles.GameName}>{member.name}</div>

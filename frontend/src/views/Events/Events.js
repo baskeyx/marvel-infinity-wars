@@ -33,7 +33,7 @@ const Events = () => {
     <Section>
       {events.map((e) => <Event key={e.id} id={e.id} name={e.name} description={e.description} characters={e.characters} /> )}
       {dialog.id ? <Type phrases={dialog.dialog} /> : null }
-    </Section>  
+    </Section>
   );
 }
 

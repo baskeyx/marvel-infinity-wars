@@ -23,8 +23,8 @@ const Packs = () => {
       method: 'GET',
       credentials: 'include',
     });
+    setPacks(packsResponse.payload);
     if (user.intro) {
-      setPacks(packsResponse.payload);
       const dialogResponse = await Fetch('/api/dialogs/74fa44e1-362a-4a38-988a-f0b4fb140543', {
         method: 'GET',
         credentials: 'include',
@@ -34,8 +34,7 @@ const Packs = () => {
     setLoading(false);
   };
 
-  const postCard = async (e) => {
-    const { id } = e.target;
+  const postCard = async (id) => {
     const cardResponse = await Fetch(`/api/cards/${id}`, {
       method: 'POST',
       credentials: 'include',
@@ -71,7 +70,7 @@ const Packs = () => {
   return (
     <Section>
       <Loading loading={loading}>
-        { showPacks ? packs.map((pack) => <Pack key={pack.id} id={pack.id} name={pack.name} description={pack.description} cost={pack.cost} onClick={postCard} />) : null }
+        { showPacks ? packs.map((pack) => <Pack key={pack.id} id={pack.id} name={pack.name} description={pack.description} cost={pack.cost} onClick={() => postCard(pack.id)} />) : null }
         { showType ? <Type phrases={dialog.dialog} /> : null }
         { showCard ? <CardReveal character={card} btnClick={afterCard} /> : null }
       </Loading>
