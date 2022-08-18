@@ -6,6 +6,8 @@
   max-width: 480px;
   overflow: hidden;
   border: 3px solid #000;
+  margin-bottom: 20px;
+  cursor: pointer;
   .GameImage {
     width: 50%;
     align-self: center;
@@ -63,5 +65,11 @@
   
     }
   
+  }
+  &.Selected {
+    border: 3px solid #ec1d24;
+  }
+  * {
+    pointer-events: none;  
   }
 }

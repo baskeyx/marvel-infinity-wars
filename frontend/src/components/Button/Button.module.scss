@@ -14,8 +14,10 @@
   opacity: 1;
   transition: all 1s;
   transition-delay: 2s;
+  display: inline-block;
 }
 
 .Button.Hide {
-  opacity: 0; 
+  opacity: 0;
+  display: none;
 }

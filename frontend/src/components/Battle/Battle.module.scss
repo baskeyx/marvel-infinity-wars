@@ -33,7 +33,7 @@
         font-weight: bold;
         white-space: nowrap;
         right: 10px;
-        transform: translateX(-400px);
+        transform: translateX(-500px);
         transition-duration: 1s;
         @media (min-width: 480px) {
           font-size: 22px;
@@ -57,6 +57,7 @@
           justify-content: center;
           transition-duration: 1s;
           opacity: 0;
+          cursor: pointer;
           @media (min-width: 480px) {
             margin-top: 14px;
             font-size: 18px;
@@ -100,7 +101,7 @@
         text-align: left;
         left: 10px;
         right: initial;
-        transform: translateX(400px);
+        transform: translateX(500px);
       }
     }
     .GameHealth {
