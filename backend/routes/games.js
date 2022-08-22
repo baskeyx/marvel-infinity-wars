@@ -141,34 +141,45 @@ router.put('/:gameId/attribute/:attribute', async (req, res, next) => {
     const g = await getGame({ id: gameId , userId });
     const { id } = g[0];
     if (!g[0]) throw new BadRequest('Invalid game ID');
-    if (g[0].turn) throw new BadRequest(`It's currently not your turn.`);
-    if (g[0].completed) throw new BadRequest('Game has been completed');
-    const roundResponse = handleRound(g[0], attribute);
-    const { players, completed, attributes, turn, output, coins } = roundResponse;
-    const putGameResponse = await putGame({ id }, {
-      players,
-      completed,
-      attributes,
-      turn,
-      output,
-    })
-    players[1].stats = hidePlayersAttributes(players[1].stats, attributes);
-    const game = {
-      id,
-      players,
-      completed,
-      attributes,
-      turn,
-      output
-    }
-    if (completed) {
-      const userQuery = { coins: coins + user.coins };
-      if (user.intro) {
-        userQuery.intro = false;
-        userQuery.selected = '';
-        console.log(await deleteCardById(g[0].selectedId))
+    let game = {};
+    if (g[0].turn) {
+      game = {
+        id: g[0].id,
+        players: g[0].players,
+        completed: g[0].completed,
+        attributes: g[0].attributes,
+        turn: g[0].turn,
+        output: g[0].output,
       }
-      console.log(await putUserById(userId, userQuery));
+    } else {
+      if (g[0].completed) throw new BadRequest('Game has been completed');
+      const roundResponse = handleRound(g[0], attribute);
+      const { players, completed, attributes, turn, output, coins } = roundResponse;
+      const putGameResponse = await putGame({ id }, {
+        players,
+        completed,
+        attributes,
+        turn,
+        output,
+      })
+      players[1].stats = hidePlayersAttributes(players[1].stats, attributes);
+      game = {
+        id,
+        players,
+        completed,
+        attributes,
+        turn,
+        output
+      }
+      if (completed) {
+        const userQuery = { coins: coins + user.coins };
+        if (user.intro) {
+          userQuery.intro = false;
+          userQuery.selected = '';
+          await deleteCardById(g[0].selectedId)
+        }
+        await putUserById(userId, userQuery);
+      }
     }
     res.send(game)
   } catch(err) {
@@ -219,9 +230,9 @@ router.put('/:gameId/turn', async (req, res, next) => {
       if (user.intro) {
         userQuery.intro = false;
         userQuery.selected = '';
-        console.log(await deleteCardById(g[0].selectedId))
+        await deleteCardById(g[0].selectedId)
       }
-      console.log(await putUserById(userId, userQuery));
+      await putUserById(userId, userQuery);
     }
     res.send(game)
   } catch(err) {

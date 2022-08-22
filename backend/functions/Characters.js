@@ -41,18 +41,31 @@ const getRandomCharacter = async (query) => {
 
 // findCharacters()
 
+// 1009718
+// 1011006
+// 1009191
+
+
+// 1009718
+
+// Ant 1010801
+// Wasp 1009707
+// 1011490
+
+// tmaster 1009648
+
 // const addCharacter = async () => {
 //   const input = {
-//     id: 1011025,
-//     name: "Thor",
+//     id: 1011490,
+//     name: "Hank Pym",
 //     type: "hero",
-//     colour: "orange",
+//     colour: "purple",
 //     stats: {
-//       dur: 7,
-//       ene: 7,
-//       fig: 7,
-//       int: 7,
-//       spe: 7,
+//       dur: 3,
+//       ene: 6,
+//       fig: 3,
+//       int: 6,
+//       spe: 3,
 //       str: 7,
 //     }
 //   }
@@ -63,6 +76,8 @@ const getRandomCharacter = async (query) => {
 //     total = total + value;
 //   }
 
+//   input.total = total;
+  
 //   const create = await character.create(input)
 
 //   console.log(create);

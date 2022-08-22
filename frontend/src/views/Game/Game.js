@@ -72,7 +72,7 @@ const Game = () => {
     <Loading loading={loading}>
       <Section>
         {game.players ? <Battle game={game} selectAttribute={selectAttribute} /> : 'Game could not be loaded' }
-        {game.output ? <Type phrases={dialog} cb={afterDialog} /> : null}
+        {dialog.length ? <Type phrases={dialog} cb={afterDialog} /> : null}
         {game.completed ? <Anchor to={`/game/${gameId}/summary`}>Summary</Anchor> : null }
       </Section>
     </Loading>
