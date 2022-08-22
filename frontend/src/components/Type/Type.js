@@ -21,6 +21,7 @@ const Type = ({ phrases, cb }) => {
 
   const changeCopy = () => {
     setButton('');
+    if (!phrases[counter]) return false;
     setCopy(phrases[counter].copy);
     setCharacter(phrases[counter].character);
     let count = counter + 1;

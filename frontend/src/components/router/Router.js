@@ -6,14 +6,11 @@ import Navigation from '../navigation';
 import Game from '../../views/Game';
 import Events from '../../views/Events';
 import Event from '../../views/Event';
-import { UserContext } from '../../Context/User';
 import Packs from '../../views/Packs';
 import Team from '../../views/Team';
 import GameSummary from '../../views/GameSummary';
 
 const Router = () => {
-  const user = useContext(UserContext)[0];
-  console.log(user);
   return (
     <BrowserRouter>
       <Header />

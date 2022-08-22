@@ -39,7 +39,6 @@ router.post('/:packId', async (req, res, next) => {
           query = {total: { $gt: 30  }}
         }
         c = await getRandomCharacter(query);
-        console.log(c);
       } else {
         const characterId = pack.chars[getRandomInt(0, pack.chars.length - 1)]
         c = await getCharacterById(characterId);
@@ -57,14 +56,13 @@ router.post('/:packId', async (req, res, next) => {
       response = {id, charId, name, stats, colour}
       let updateUser = user;
       updateUser.coins = newCoins;
-      // if (user.selected === '') {
-      //   updateUser.selected = id;
-      // }
+      if (user.selected === '') {
+        updateUser.selected = id;
+      }
       await putUserById(userId, updateUser);
     }
     else {
       throw new BadRequest('You do not have enough coins to purchase this pack');
-      //if (!userId) throw new BadRequest('User ID required to start a game');
     }
     res.send(response);
   } catch(err) {
